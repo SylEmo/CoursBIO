@@ -1,0 +1,4 @@
+- Construction index
+- Interrogation index
+	- tous les emplacements de P dans T, leur nombre, leur pas.
+- Mesurer en gros le temps et mémoire pour 2 3 patterns
