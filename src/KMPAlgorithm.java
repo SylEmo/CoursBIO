@@ -5,21 +5,22 @@ public class KMPAlgorithm {
 	
 	public KMPAlgorithm(String pattern, String sequence){
 		this.pattern = pattern;
-		System.out.println("Pattern utilisé : " + pattern);
+		System.out.println("Pattern utilisé : " + pattern + " de taille " + pattern.length());
 		this.sequence = sequence;
+		System.out.println("Séquence utilisée : " + sequence + " de taille " + sequence.length());
 		tabComputePattern = new int[pattern.length()];
 	}
 	
 	public void doYourJob(){
-		System.out.println("Lancement du pre-process...");
-		
+		System.out.println("\nLancement du pre-process...");
 		computeTab();
-		System.out.print("Tableau après pre-process : ");
-		for (int i = 0; i < pattern.length() ; i++) {
+		
+		System.out.print("\nTableau après pre-process : ");
+		for (int i = 0; i < pattern.length() ; i++)
 			System.out.print(tabComputePattern[i] + " ");
-		}
 		
-		
+		System.out.println("\n\nLancement de la recherche...");
+		search();
 	}
 	
 	public void computeTab(){
@@ -33,7 +34,8 @@ public class KMPAlgorithm {
 			index++;
 			System.out.print("incrément index = " + index);
 			System.out.print(", ");
-			System.out.print("pattern.charAt(v) = " + pattern.charAt(v) + ", pattern.charAt(index) = " + pattern.charAt(index));
+			System.out.print("pattern.charAt(v) = " + pattern.charAt(v) +
+					", pattern.charAt(index) = " + pattern.charAt(index));
 			System.out.print(", ");
 			if (pattern.charAt(v) == pattern.charAt(index)) {
 				System.out.print("rentre IF");
@@ -56,6 +58,53 @@ public class KMPAlgorithm {
 	}
 	
 	public void search(){
+		int similarChars = 0, patternsFound = 0, indexPat = 0;
 		
+		for (int indexSeq = 0; indexSeq < sequence.length() - 1; indexSeq++) {
+			System.out.print(" -- Nouvelle boucle : indexSeq = " + indexSeq);
+			System.out.print(", ");
+			
+			System.out.print("? " + pattern.charAt(indexPat) +	" == " + 
+					sequence.charAt(indexSeq + indexPat));
+			System.out.print(" ? ");
+			while (indexPat < pattern.length() && indexPat + indexSeq < sequence.length() 
+					&& pattern.charAt(indexPat) == sequence.charAt(indexSeq + indexPat)) {	
+				similarChars++;
+				System.out.print("incrément similarChars = " + similarChars);
+				System.out.print(", ");
+				indexPat++;
+				System.out.print("incrément indexPat = " + indexPat);
+				System.out.print(", ");
+				
+				if (indexPat == pattern.length()) {
+					System.out.print("\n -- !!!!!!! Pattern trouvé à la position " + indexSeq);
+					System.out.print(" !!!!!!! ");
+					patternsFound++;
+					indexSeq += pattern.length() - 1;
+					System.out.print("modif indexSeq = " + indexSeq);
+					System.out.print(", ");
+				}
+				else {
+					try {
+						System.out.print("? " + pattern.charAt(indexPat) +	" == " + 
+								sequence.charAt(indexSeq + indexPat));
+						System.out.print(" ? ");
+					}catch(Exception e){}
+				}
+			}
+			if (similarChars != 0) {
+				indexSeq += ((similarChars - tabComputePattern[similarChars - 1]) - 1);
+				System.out.print("modif indexSeq = " + indexSeq + " avec tabComputePattern[similarChars - 1] = " + 
+						tabComputePattern[similarChars - 1] + " - 1");
+				System.out.print(", ");
+				similarChars = 0;
+				System.out.print("réinit similarChars = " + similarChars);
+				System.out.print(", ");
+				indexPat = 0;
+				System.out.print("réinit indexPat = " + indexPat);
+				System.out.print(" -- ");
+			}
+			System.out.println();
+		}
 	}
 }
