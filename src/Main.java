@@ -3,7 +3,7 @@
  */
 
 /**
- * @author Sylemo
+ * @author Sylvain EMONET & Baptiste TRULLA
  *
  */
 public class Main {
