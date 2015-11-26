@@ -15,5 +15,9 @@ public class BWTAlgorithm {
 	public BWTAlgorithm(String sequence) {
 		this.sequence = sequence;
 	}
+	
+	public void letsGoGuys() {
+		
+	}
 
 }
