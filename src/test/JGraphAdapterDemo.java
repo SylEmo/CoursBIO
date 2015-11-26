@@ -1,3 +1,4 @@
+package test;
 /* ==========================================
  * JGraphT : a free Java graph-theory library
  * ==========================================
@@ -35,6 +36,7 @@
  * 07-Nov-2003 : Adaptation to JGraph 3.0 (BN);
  *
  */
+
 import java.awt.*;
 import java.awt.geom.*;
 
@@ -79,7 +81,7 @@ public class JGraphAdapterDemo
      *
      * @param args ignored.
      */
-    public static void main(String [] args)
+    public static void bonjour()
     {
         JGraphAdapterDemo applet = new JGraphAdapterDemo();
         applet.init();
@@ -111,8 +113,8 @@ public class JGraphAdapterDemo
         getContentPane().add(jgraph);
         resize(DEFAULT_SIZE);
 
-        String v1 = "v1";
-        String v2 = "v2";
+        String v1 = "TEst";
+        String v2 = "abb";
         String v3 = "v3";
         String v4 = "v4";
 

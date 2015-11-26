@@ -9,17 +9,17 @@ public class KMPAlgorithm {
 	
 	public KMPAlgorithm(String pattern, String sequence){
 		this.pattern = pattern;
-		System.out.println("Pattern utilisÈ : " + pattern + " de taille " + pattern.length());
+		System.out.println("Pattern utilis√© : " + pattern + " de taille " + pattern.length());
 		this.sequence = sequence;
-		System.out.println("SÈquence utilisÈe : " + sequence + " de taille " + sequence.length());
+		System.out.println("S√©quence utilis√©e : " + sequence + " de taille " + sequence.length());
 		tabComputePattern = new int[pattern.length()];
 	}
 	
 	public void doYourJob(){
-		System.out.println("\nLancement du pre-process...");
+		System.out.println("\nLancement du pr√©-process...");
 		computeTab();
 		
-		System.out.print("\nTableau aprËs pre-process : ");
+		System.out.print("\nTableau apr√®s pr√©-process : ");
 		for (int i = 0; i < pattern.length() ; i++)
 			System.out.print(tabComputePattern[i] + " ");
 		
@@ -30,13 +30,13 @@ public class KMPAlgorithm {
 	public void computeTab(){
 		int index = 0, v = 0;
 		
-		tabComputePattern[0] = 0; // pour la premiËre lettre du pattern
+		tabComputePattern[0] = 0; // pour la premiÔøΩre lettre du pattern
 		
 		while (index < pattern.length() - 1) {
 			System.out.print(" -- Nouvelle boucle : index = " + index);
 			System.out.print(", ");
 			index++;
-			System.out.print("incrÈment index = " + index);
+			System.out.print("incr√©mente index = " + index);
 			System.out.print(", ");
 			System.out.print("pattern.charAt(v) = " + pattern.charAt(v) +
 					", pattern.charAt(index) = " + pattern.charAt(index));
@@ -74,14 +74,14 @@ public class KMPAlgorithm {
 			while (indexPat < pattern.length() && indexPat + indexSeq < sequence.length() 
 					&& pattern.charAt(indexPat) == sequence.charAt(indexSeq + indexPat)) {	
 				similarChars++;
-				System.out.print("incrÈment similarChars = " + similarChars);
+				System.out.print("incr√©mente similarChars = " + similarChars);
 				System.out.print(", ");
 				indexPat++;
-				System.out.print("incrÈment indexPat = " + indexPat);
+				System.out.print("incr√©mente indexPat = " + indexPat);
 				System.out.print(", ");
 				
 				if (indexPat == pattern.length()) {
-					System.out.print("\n -- !!!!!!! Pattern trouvÈ ‡ la position " + indexSeq);
+					System.out.print("\n -- !!!!!!! Pattern trouv√© √† la position " + indexSeq);
 					System.out.print(" !!!!!!! ");
 					patternsFound++;
 					indexSeq += pattern.length() - 1;
@@ -102,10 +102,10 @@ public class KMPAlgorithm {
 						tabComputePattern[similarChars - 1] + " - 1");
 				System.out.print(", ");
 				similarChars = 0;
-				System.out.print("rÈinit similarChars = " + similarChars);
+				System.out.print("r√©init similarChars = " + similarChars);
 				System.out.print(", ");
 				indexPat = 0;
-				System.out.print("rÈinit indexPat = " + indexPat);
+				System.out.print("r√©init indexPat = " + indexPat);
 				System.out.print(" -- ");
 			}
 			System.out.println();

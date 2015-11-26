@@ -1,3 +1,5 @@
+import java.util.Date;
+
 /**
  * 
  */
@@ -8,12 +10,23 @@
  */
 public class Main {
 
+	private static final String sequence = "ABCABCDABABCDABCDABDE";
+	private static final String pattern = " AB.CD AB.D";
+	private static final String sequenceSuffixTree = "ABAB";
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		KMPAlgorithm kmp = new KMPAlgorithm("ABCDABD", "ABCABCDABABCDABCDABDE");
+		/***** Algo 3 *****/
+		KMPAlgorithm kmp = new KMPAlgorithm(pattern, sequence);
 		kmp.doYourJob();
+		
+		/***** Algo 4 *****/
+		SuffixTree st = new SuffixTree(sequenceSuffixTree);
+		st.showMeThings();		
+		
+		BWTAlgorithm bwt = new BWTAlgorithm(pattern);
+		bwt.makeMeDream();
 	}
 
 }
