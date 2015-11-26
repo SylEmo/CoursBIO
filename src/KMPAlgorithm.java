@@ -1,3 +1,7 @@
+/**
+ * @author Sylvain EMONET & Baptiste TRULLA
+ *
+ */
 public class KMPAlgorithm {
 	
 	private String pattern, sequence;
