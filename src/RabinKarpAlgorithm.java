@@ -6,8 +6,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.Date;
-import java.util.Random;
-import java.math.BigInteger;
 import java.text.SimpleDateFormat;
 
 public class RabinKarpAlgorithm {
@@ -104,6 +102,7 @@ public class RabinKarpAlgorithm {
 		System.out.println("Début de l'algorithme Rabin Karp "+formater.format(tempsAvantRKA));
 		
 		System.out.println("\nResultats : \n");
+		@SuppressWarnings("unused")
 		RabinKarpAlgorithm rk = new RabinKarpAlgorithm(text, pattern);
 
 		Date tempsApresRKA = new Date();
