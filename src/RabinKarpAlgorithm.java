@@ -81,7 +81,7 @@ public class RabinKarpAlgorithm {
 				// match
 				int offset = i - M + 1;
 				if ((patternHash == textHash) && check(text, offset))
-					System.out.println(pattern + " trouvé à la position : " + i + ".");
+					System.out.println("Le pattern "+pattern + " trouvé à la position : " + i + ".");
 
 			}
 		}
@@ -110,7 +110,7 @@ public class RabinKarpAlgorithm {
 		System.out.println("\nFin de l'algorithme Rabin Karp "+formater.format(tempsApresRKA));
 
 		long chrono = tempsApresRKA.getTime() - tempsAvantRKA.getTime();
-		System.out.println("Temps total de l'éxécution : " + chrono + " ms");
+		System.out.println("Temps total de l'éxécution de l'algorithme Rabin Karp : " + chrono + " ms.");
 
 	}
 }
