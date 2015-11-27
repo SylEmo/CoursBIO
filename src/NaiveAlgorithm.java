@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -35,14 +38,17 @@ public class NaiveAlgorithm {
 			+ "GTGTTACGCACCCAAACTTTTATGAAAGTCTTTGTTTATAATGATGAGGTTTATAAATATATAGTGGAGC"
 			+ "AAAGATTAATCACTAAATCAAGAAGCAGTACCAGTATTTTTTCTATATCAAGTAGTGATAATGGAAATAG\n" + "CCCAAATTTGGCTTCCGTCGAC";
 
-	static String pattern1 = "TGATGG";
-	static String pattern2 = "TTTT";
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("\nAlgorithme Naif sur : \n "+text);
+
+		System.out.println("\nEntrer un pattern :\n");
+		String pattern = br.readLine();
 
 		int n = text.length();
-		int m1 = pattern1.length();
-		int m2 = pattern2.length();
+		int m1 = pattern.length();
 		
 		Date tempsAvantNaive = new Date();
 		SimpleDateFormat formater = null;
@@ -51,11 +57,8 @@ public class NaiveAlgorithm {
 		
 		for (int i = 0; i < n - m1; i++) {
 			
-			if (pattern1.equals(text.subSequence(i, i + m1)))
-				System.out.println("Le pattern TGATGG trouvé à la position : " + (i + 1)+".");
-			
-			if (pattern2.equals(text.subSequence(i, i + m2)))
-				System.out.println("Le pattern TTTT trouvé à la position : " + (i + 1)+".");
+			if (pattern.equals(text.subSequence(i, i + m1)))
+				System.out.println("Le pattern "+pattern+" trouvé à la position : " + (i + 1)+".");
 
 		}
 		
