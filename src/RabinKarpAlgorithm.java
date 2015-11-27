@@ -81,7 +81,7 @@ public class RabinKarpAlgorithm {
 				// match
 				int offset = i - M + 1;
 				if ((patternHash == textHash) && check(text, offset))
-					System.out.println("Le pattern "+ pattern + " trouvé à la position : " + i + ".");
+					System.out.println("Le pattern "+ pattern + " trouvé à la position : " + (i+1-M) + ".");
 
 			}
 		}
