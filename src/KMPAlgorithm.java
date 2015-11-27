@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * @author Sylvain EMONET & Baptiste TRULLA
  *
@@ -63,6 +65,7 @@ public class KMPAlgorithm {
 	
 	public void search(){
 		int similarChars = 0, patternsFound = 0, indexPat = 0;
+		ArrayList<Integer> listPositions = new ArrayList<>();
 		
 		for (int indexSeq = 0; indexSeq < sequence.length() - 1; indexSeq++) {
 			System.out.print(" -- Nouvelle boucle : indexSeq = " + indexSeq);
@@ -84,6 +87,7 @@ public class KMPAlgorithm {
 					System.out.print("\n -- !!!!!!! Pattern trouvé à la position " + indexSeq);
 					System.out.print(" !!!!!!! ");
 					patternsFound++;
+					listPositions.add(indexSeq);
 					indexSeq += pattern.length() - 1;
 					System.out.print("modif indexSeq = " + indexSeq);
 					System.out.print(", ");
@@ -110,5 +114,11 @@ public class KMPAlgorithm {
 			}
 			System.out.println();
 		}
+		
+		System.out.println("Liste des positions (total = " + patternsFound + ") où se trouvait le pattern :");
+		for (Integer integer : listPositions) {
+			System.out.print(" " + integer + ",");
+		}
+		System.out.println();
 	}
 }
