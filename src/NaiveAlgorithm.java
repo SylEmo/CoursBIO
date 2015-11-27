@@ -48,16 +48,16 @@ public class NaiveAlgorithm {
 		String pattern = br.readLine();
 
 		int n = text.length();
-		int m1 = pattern.length();
+		int m = pattern.length();
 		
 		Date tempsAvantNaive = new Date();
 		SimpleDateFormat formater = null;
 		formater = new SimpleDateFormat("'le' dd/MM/yyyy 'à' hh:mm:ss:SS");
 		System.out.println("Début de l'algorithme Naif "+formater.format(tempsAvantNaive));
 		
-		for (int i = 0; i < n - m1; i++) {
+		for (int i = 0; i < n - m; i++) {
 			
-			if (pattern.equals(text.subSequence(i, i + m1)))
+			if (pattern.equals(text.subSequence(i, i + m)))
 				System.out.println("Le pattern "+pattern+" trouvé à la position : " + (i + 1)+".");
 
 		}
